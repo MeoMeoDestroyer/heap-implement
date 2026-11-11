@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 /**
  * A min-heap. 
  * 
@@ -29,6 +30,14 @@ public class Heap {
     //make an empty heap
     public Heap(){
         data = new ArrayList<>();
+    }
+
+    // return the smallest value in the heap (which is the root)
+    public int peek() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Cant peek at an empty heap");
+        }
+        return data.get(0);
     }
 
     // return the size of things in the heap
