@@ -51,11 +51,15 @@ public class Heap {
         return index * 2 + 2;
     }
 
-    // retur the index of the left child of the given index
+    // return the index of the left child of the given index
     private int leftChild(int index){
         return index * 2 + 1;
     }
 
-    // use to switch value at index between two index
-    // private int switch ( int index , int index2) 
+    // use to swap value at index between two index
+    private void swap(int index1, int index2){
+        int firstValue = data.get(index1);
+        data.set(index1, data.get(index2));
+        data.set(index2, firstValue);
+    }
 }
