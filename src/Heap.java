@@ -45,6 +45,11 @@ public class Heap {
         return data.size();
     }
 
+    // add a value to the end of the heap
+    public void add(int value) {
+        data.add(value);
+    }
+
     // return if the heap is empty or not
     public boolean isEmpty(){
         return data.isEmpty();

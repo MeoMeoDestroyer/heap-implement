@@ -15,4 +15,14 @@ public class HeapTest {
     public void peekOnEmptyHeapThrows() {
         new Heap().peek();
     }
+
+    // tests for add
+    @Test
+    public void addOneElement() {
+        Heap heap = new Heap();
+        heap.add(7);
+        assertFalse(heap.isEmpty());
+        assertEquals(1, heap.size());
+        assertEquals(7, heap.peek());
+    }
 }
