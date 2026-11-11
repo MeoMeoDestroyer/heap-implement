@@ -53,6 +53,7 @@ public class Heap {
 
     // retur the index of the left child of the given index
     private int leftChild(int index){
+        return index * 2 + 1;
     }
 
     // use to switch value at index between two index
