@@ -33,7 +33,7 @@ public class Heap {
 
     // return the size of things in the heap
     public int size() {
-        return data.size;
+        return data.size();
     }
 
     // return if the heap is empty or not
@@ -41,4 +41,20 @@ public class Heap {
         return data.isEmpty();
     }
 
+    // return index of parent of the given index
+    private int parent(int index){
+        return (index -1)/2;
+    }
+
+    // return the index of the right child of the index
+    private int rightChild(int index){
+        return index * 2 + 2;
+    }
+
+    // retur the index of the left child of the given index
+    private int leftChild(int index){
+    }
+
+    // use to switch value at index between two index
+    // private int switch ( int index , int index2) 
 }
