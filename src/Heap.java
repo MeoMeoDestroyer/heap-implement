@@ -48,6 +48,7 @@ public class Heap {
     // add a value to the end of the heap
     public void add(int value) {
         data.add(value);
+        bubbleUp(data.size() - 1);
     }
 
     // return if the heap is empty or not
@@ -75,5 +76,17 @@ public class Heap {
         int firstValue = data.get(index1);
         data.set(index1, data.get(index2));
         data.set(index2, firstValue);
+    }
+
+    // move the value at index up while it is smaller than its parent
+    private void bubbleUp(int index) {
+        while (index > 0) {
+            int parentIndex = parent(index);
+            if (data.get(index) >= data.get(parentIndex)) {
+                return;
+            }
+            swap(index, parentIndex);
+            index = parentIndex;
+        }
     }
 }

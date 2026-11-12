@@ -25,4 +25,38 @@ public class HeapTest {
         assertEquals(1, heap.size());
         assertEquals(7, heap.peek());
     }
+
+    @Test
+    public void peekGiveMinimum() {
+        Heap heap = new Heap();
+        heap.add(5);
+        heap.add(3);
+        heap.add(8);
+        heap.add(1);
+        heap.add(4);
+        assertEquals(1, heap.peek());
+    }
+
+    @Test
+    public void addingSmallerValueBecomeFront() {
+        Heap heap = new Heap();
+        heap.add(10);
+        assertEquals(10, heap.peek());
+        heap.add(4);
+        assertEquals(4, heap.peek());
+        heap.add(6);
+        assertEquals(4, heap.peek());
+        heap.add(-1);
+        assertEquals(-1, heap.peek());
+    }
+
+    @Test
+    public void peekDoesNotRemove() {
+        Heap heap = new Heap();
+        heap.add(2);
+        heap.add(9);
+        assertEquals(2, heap.peek());
+        assertEquals(2, heap.peek());
+        assertEquals(2, heap.size());
+    }
 }
