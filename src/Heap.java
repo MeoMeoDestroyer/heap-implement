@@ -52,8 +52,6 @@ public class Heap {
 
         int min = data.get(0);
         int last = data.remove(data.size() - 1);
-
-        // if there still value left, move the last value into the root spot
         if (!isEmpty()) {
             data.set(0, last);
             bubbleDown(0);
@@ -107,6 +105,7 @@ public class Heap {
 
     // move the value at index down until there is no smaller child to swap with
     // stop when the value is <= both children or it reaches a leaf
+    // make sure the heap is balance and in a heap order
     private void bubbleDown(int index){
         int size = data.size();
         while (true) {

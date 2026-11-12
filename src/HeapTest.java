@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 public class HeapTest {
 
     @Test
-    public void HeapIsEmpty() {
+    public void heapIsEmpty() {
         Heap heap = new Heap();
         assertTrue(heap.isEmpty());
         assertEquals(0, heap.size());
@@ -95,5 +95,57 @@ public class HeapTest {
         assertEquals(1, heap.pop());
         assertEquals(2, heap.pop());
         assertEquals(3, heap.pop());
+    }
+
+        @Test
+    public void popsMixedOrderInSortedOrder() {
+        Heap heap = new Heap();
+        heap.add(5);
+        heap.add(3);
+        heap.add(8);
+        heap.add(1);
+        heap.add(9);
+        heap.add(2);
+        heap.add(7);
+        assertEquals(1, heap.pop());
+        assertEquals(2, heap.pop());
+        assertEquals(3, heap.pop());
+        assertEquals(5, heap.pop());
+        assertEquals(7, heap.pop());
+        assertEquals(8, heap.pop());
+        assertEquals(9, heap.pop());
+        assertTrue(heap.isEmpty());
+    }
+
+    @Test
+    public void handlesDuplicates() {
+        Heap heap = new Heap();
+        heap.add(5);
+        heap.add(1);
+        heap.add(5);
+        heap.add(1);
+        heap.add(5);
+        assertEquals(1, heap.pop());
+        assertEquals(1, heap.pop());
+        assertEquals(5, heap.pop());
+        assertEquals(5, heap.pop());
+        assertEquals(5, heap.pop());
+        assertTrue(heap.isEmpty());
+    }
+
+    @Test
+    public void interleavedAddsAndPops() {
+        Heap heap = new Heap();
+        heap.add(5);
+        heap.add(2);
+        assertEquals(2, heap.pop());
+        heap.add(8);
+        heap.add(1);
+        assertEquals(1, heap.pop());
+        heap.add(3);
+        assertEquals(3, heap.pop());
+        assertEquals(5, heap.pop());
+        assertEquals(8, heap.pop());
+        assertTrue(heap.isEmpty());
     }
 }
