@@ -59,4 +59,29 @@ public class HeapTest {
         assertEquals(2, heap.peek());
         assertEquals(2, heap.size());
     }
+
+     @Test
+    public void popOnEmptyHeapThrow() {
+        Heap heap = new Heap();
+        try {
+            heap.pop();
+            fail("Expected NoSuchElementException");
+        } catch (NoSuchElementException e) {
+        }
+        assertTrue(heap.isEmpty());
+        assertEquals(0, heap.size());
+    }
+
+    @Test
+    public void peekAfterEmptyingHeapThrow() {
+        Heap heap = new Heap();
+        heap.add(5);
+        heap.pop();
+        try {
+            heap.peek();
+            fail("Expected NoSuchElementException");
+        // expected this down here
+        } catch (NoSuchElementException e) {
+        }
+}
 }

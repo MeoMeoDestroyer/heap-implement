@@ -45,10 +45,28 @@ public class Heap {
         return data.size();
     }
 
-    // add a value to the end of the heap
+    // add a value, then method bubble it up to the right spot
     public void add(int value) {
         data.add(value);
         bubbleUp(data.size() - 1);
+    }
+    // remove the smallest value from heap (root) then return
+    // if it empty -> throw
+    public int pop() {
+    if (isEmpty()) {
+        throw new NoSuchElementException("Can't pop, heap EMPTY");
+    }
+
+    int min = data.get(0);
+    int last = data.remove(data.size() - 1);
+
+    // if there still value left, move the last value into the root spot
+    if (!isEmpty()) {
+        data.set(0, last);
+        // bubble down should be here
+    }
+
+    return min;
     }
 
     // return if the heap is empty or not
@@ -88,5 +106,9 @@ public class Heap {
             swap(index, parentIndex);
             index = parentIndex;
         }
+    }
+    // bubbleDown 
+    private void bubbleDown(int index){
+
     }
 }
