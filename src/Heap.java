@@ -63,7 +63,7 @@ public class Heap {
     // if there still value left, move the last value into the root spot
     if (!isEmpty()) {
         data.set(0, last);
-        // bubble down should be here
+        bubbleDown(0);
     }
 
     return min;
@@ -107,8 +107,26 @@ public class Heap {
             index = parentIndex;
         }
     }
-    // bubbleDown 
+    // move the value at index down while it is bigger than its children
     private void bubbleDown(int index){
+        int size = data.size();
+        while (true) {
+            int left = leftChild(index);
+            int right = rightChild(index);
 
+            int smallest = index;
+
+            if (left < size && data.get(left) < data.get(smallest)) {
+                smallest = left;
+            }
+            if (right < size && data.get(right) < data.get(smallest)) {
+                smallest = right;
+            }
+
+            if (smallest == index) return;
+
+            swap(index, smallest);
+            index = smallest;
+        }
     }
 }

@@ -84,4 +84,15 @@ public class HeapTest {
         } catch (NoSuchElementException e) {
         }
 }
+
+    @Test
+    public void popsInSortedOrder() {
+        Heap heap = new Heap();
+        heap.add(1);
+        heap.add(2);
+        heap.add(3);
+        assertEquals(1, heap.pop());
+        assertEquals(2, heap.pop());
+        assertEquals(3, heap.pop());
+    }
 }
