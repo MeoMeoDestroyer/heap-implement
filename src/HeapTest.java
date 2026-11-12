@@ -82,6 +82,7 @@ public class HeapTest {
             fail("Expected NoSuchElementException");
         // expected this down here
         } catch (NoSuchElementException e) {
+            
         }
 }
 
